@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties*/
+:root {
+    --color-1: #fff7d4;
+    --color-2: #44ffd2;
+    --color-3: #87f6ff;
+    --color-4: #daf5ff;
+    --color-5: #996c23;
+}
+
+#header {
+    display: grid;
+    place-items: center;
+}
+
+#movieArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#movie_area_div {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid cyan;
+    width: 20%;
+    margin: 10px;
+}
+
+/*If 900px or smaller*/
+
+@media only screen and (max-width: 900px) {
+    #movie_area_div {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #movie_area_div {
+        width: 50%;
+    }
+}
+
+.movie_area_flex {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+    justify-content: space-between;
+    padding: 10px;
+    /*color: var(--color-1);*/
+    color: black;
+}
+
+#movie_title {
+    border: 1px solid black;
+    /*flex: 1;*/
+}
+
+#movie_average {
+    /*    flex: 1;*/
+}
