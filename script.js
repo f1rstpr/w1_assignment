@@ -10,6 +10,7 @@ const form = document.getElementById("form");
 const movie_area = document.getElementById("movieArea");
 const load_btn = document.getElementById("load_btn");
 const popup = document.getElementById("popup");
+const clear_search = document.getElementById("clear_search");
 
 let popup_main = "";
 let popup_exit = "";
@@ -22,6 +23,13 @@ form.addEventListener("submit", (e) => {
 });
 
 load_btn.addEventListener("click", (type) => loadMore(type));
+clear_search.addEventListener("click", clearSearch);
+
+async function clearSearch() {
+    let movies = await apiCall("current");
+    movie_area.innerHTML = ``;
+    displayMovies(movies);
+}
 
 async function apiCall(type, USER_INPUT) {
     let api_url =
