@@ -82,65 +82,6 @@ function displayMovies(movies) {
         </div>`;
 
         let getAllMoviesDOM = document.querySelectorAll(".movie_area_div");
-        // console.log(getAllMoviesDOM);
-        // for (let i = 0; i < test; i++) {
-        //     console.log(test[i]);
-        // }
-        // getAllMoviesDOM.forEach((m, i) => {
-        //     console.log(id_arr[i]);
-        //     m.addEventListener("click", async () => {
-        //         let movies_more_info = await fetch(
-        //             `https://api.themoviedb.org/3/movie/${id_arr[i]}?api_key=${API_KEY}&language=en-US`
-        //         );
-
-        //         const movies_more_info_data = await movies_more_info.json();
-
-        //         moreDetails["backdrop_path"] =
-        //             IMAGES_URL + movies_more_info_data.backdrop_path;
-        //         moreDetails["overview"] = movies_more_info_data.overview;
-        //         moreDetails["title"] = movies_more_info_data.title;
-        //         moreDetails["genre"] = movies_more_info_data.genres[0].name;
-        //         moreDetails["date"] = movies_more_info_data.release_date;
-        //         moreDetails["runtime"] = movies_more_info_data.runtime;
-
-        //         console.log(moreDetails.title);
-        //         movie_area.style.filter = "blur(10px)";
-
-        //         popup.innerHTML = `
-        //             <div class="popup_main">
-        //                 <div class="popup_container">
-        //                     <p class="popup_exit">❌</p>
-        //                     <div class="popup_info">
-        //                         <div id="popup_img">
-        //                             <div id="popup_imgtag">
-        //                                 <img src=${moreDetails["backdrop_path"]} alt="backdrop image of ${moreDetails.title}">
-        //                                     <div id="popup_text_left">
-        //                                         <div id="popup_sub">${moreDetails.genre}</div>
-        //                                         <div id="popup_title">${moreDetails.title}</div>
-        //                                         <div id="popup_sub">${moreDetails.runtime} mins | ${moreDetails.date}</div>
-        //                                      </div>
-        //                                      <div id="popup_text_right">
-        //                                          <div id="popup_overview">${moreDetails.overview} </div>
-        //                                     </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         `;
-
-        //         popup_main = document.querySelector(".popup_main");
-        //         popup_exit = document.querySelector(".popup_exit");
-
-        //         popup_main.style.display = "block";
-
-        //         popup_exit.addEventListener("click", () => {
-        //             popup_main.style.display = "none";
-        //             movie_area.style.filter = "blur(0px)";
-        //         });
-        //     });
-        // });
-
         getAllMoviesDOM.forEach((m, i) => {
             m.addEventListener("click", async () => {
                 let movies_more_info = await fetch(
