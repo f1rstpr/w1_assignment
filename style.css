@@ -12,9 +12,9 @@ body {
     --color-5: #e1e2ef;
 }
 
-/*.closed {*/
-    /*display: none;*/
-/*}*/
+.closed {
+    display: none;
+}
 
 .btn {
     background-color: var(--color-1);

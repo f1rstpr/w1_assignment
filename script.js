@@ -11,15 +11,26 @@ const movie_area = document.getElementById("movieArea");
 const load_btn = document.getElementById("load_btn");
 const popup = document.getElementById("popup");
 const clear_search = document.getElementById("clear_search");
+const search_input = document.getElementById("search__input");
 
 let popup_main = "";
 let popup_exit = "";
+
+clear_search.addEventListener("click", (e) => {
+    clear_search.classList.add("closed");
+    console.log(search_input.value);
+    search_input.value = ``;
+});
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     PAGE = 1;
     USER_INPUT = e.target.movieTerm.value;
     searchForMovie(USER_INPUT);
+
+    if (clear_search.classList.contains("closed")) {
+        clear_search.classList.remove("closed");
+    }
 });
 
 load_btn.addEventListener("click", (type) => loadMore(type));
@@ -30,7 +41,9 @@ async function clearSearch() {
     PAGE = 1;
     let movies = await apiCall("current");
     movie_area.innerHTML = ``;
+    type = "current";
     displayMovies(movies);
+
     // location.reload(); dont do this
 }
 
@@ -139,8 +152,8 @@ function displayMovies(movies) {
 }
 
 async function loadMore() {
+    PAGE = PAGE + 1;
     let movies = await apiCall(type, USER_INPUT);
     console.log(`Inside loadMore(), ${type}, ${USER_INPUT}`);
-    PAGE = PAGE + 1;
     displayMovies(movies);
 }
