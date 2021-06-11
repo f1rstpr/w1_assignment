@@ -12,6 +12,10 @@ body {
     --color-5: #e1e2ef;
 }
 
+/*.closed {*/
+    /*display: none;*/
+/*}*/
+
 .btn {
     background-color: var(--color-1);
     text-transform: uppercase;
@@ -83,8 +87,6 @@ body {
     padding: 10px;
     color: black;
 }
-
-
 
 #movie_title {
     display: flex;
