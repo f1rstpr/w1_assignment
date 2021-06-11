@@ -9,9 +9,9 @@
     <body>
         <div>
             <header id="header">
-                <div>hi</div>
                 <div class="search__bar">
                     <form id="form">
+                        <span id="form_h1"> FLIXSTER </span>
                         <input
                             id="search__input"
                             type="text"
@@ -20,7 +20,7 @@
                             placeholder="Movie name"
                             required
                         />
-                        <button id="search_button">button</button>
+                        <button id="search_button" class="btn">search</button>
                     </form>
                 </div>
             </header>
@@ -29,7 +29,10 @@
             <div id="popup"></div>
 
             <footer>
-                <button id="load_btn">Load more movies</button>
+                <div id="load_btn">
+                    <button class="btn">more</button>
+                </div>
+                <div style="margin: 20px"></div>
             </footer>
         </div>
         <script src="script.js"></script>

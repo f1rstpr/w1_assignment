@@ -56,7 +56,7 @@ function displayMovies(movies) {
 
         movie_area.innerHTML += `
         <div class="movie_area_div">
-                <img src=${image_path}>
+                <img src=${image_path} alt="image of movie ${movie.title}">
                 <div class="movie_area_flex">
                     <p id="movie_title"> ${movie.title} </p>
 
@@ -76,7 +76,6 @@ function displayMovies(movies) {
                     `https://api.themoviedb.org/3/movie/${id_arr[i]}?api_key=${API_KEY}&language=en-US`
                 );
                 const movies_more_info_data = await movies_more_info.json();
-                console.log(movies_more_info_data);
                 moreDetails["backdrop_path"] =
                     IMAGES_URL + movies_more_info_data.backdrop_path;
                 moreDetails["overview"] = movies_more_info_data.overview;
@@ -86,15 +85,7 @@ function displayMovies(movies) {
                 moreDetails["runtime"] = movies_more_info_data.runtime;
 
                 movie_area.style.filter = "blur(10px)";
-                console.log(moreDetails);
-                console.log(moreDetails["backdrop_path"]);
-                console.log(moreDetails.title);
-                {
-                    /*<img id="popup_imgtag" src=${moreDetails.backdrop_path}>*/
-                }
-                console.log(
-                    "background-image: url(" + moreDetails.backdrop_path + ")"
-                );
+
                 popup.innerHTML = `
                     <div class="popup_main">
                         <div class="popup_container">
@@ -103,13 +94,20 @@ function displayMovies(movies) {
                                 <div id="popup_img">
 
                                     <div id="popup_imgtag">
+                                        <img src=${moreDetails["backdrop_path"]} alt="backdrop image of ${moreDetails.title}">
+
+                                            <div id="popup_text_left">
+                                                <div id="popup_sub">${moreDetails.genre}</div>
+                                                <div id="popup_title">${moreDetails.title}</div>
+                                                <div id="popup_sub">${moreDetails.runtime} mins | ${moreDetails.date}</div>
+                                             </div>
+                                             <div id="popup_text_right">
+                                                 <div id="popup_overview">${moreDetails.overview} </div>
+                                            </div>
 
                                     </div>
                                 </div>
-                                <div>${moreDetails.genre}</div>
-                                <div>${moreDetails.title}</div>
-                                <div>${moreDetails.runtime} mins | ${moreDetails.date}</div>
-                                <div>${moreDetails.overview} </div>
+
                             </div>
 
                         </div>
@@ -132,7 +130,6 @@ function displayMovies(movies) {
 
 async function loadMore() {
     let movies = await apiCall(type, USER_INPUT);
-    console.log("loadMore", movies);
     PAGE = PAGE + 1;
     displayCurrentMovies(movies);
 }
